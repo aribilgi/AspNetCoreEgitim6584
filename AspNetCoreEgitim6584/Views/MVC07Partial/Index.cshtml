@@ -1,0 +1,26 @@
+﻿@model Kullanici
+@{
+    ViewBag.Title = "MVC Partial Kullanımı";
+}
+
+<h2>MVC Partial Kullanımı</h2>
+
+<p>
+    MVC de sayfaları parçalara ayırıp kod kalabalıklığını önlemek veya sayfaları kolay yönetmek gibi işler için partial yapısını kullanıyoruz.
+</p>
+
+<h3>Standart Partial Çağırımı</h3>
+
+@Html.Partial("_PartialMenu")
+
+<h3>AspNetCore Tag Helper Partial Çağırımı</h3>
+
+<partial name="_PartialMenu" />
+
+<h3>Partialde Model Kullanımı</h3>
+
+<partial name="_PartialModelKullanimi" model="Model" />
+
+<h3>Partial'ın Asenkron Çağrılması</h3>
+
+@await Html.PartialAsync("_PartialModelKullanimi", Model)
