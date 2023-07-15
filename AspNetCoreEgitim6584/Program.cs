@@ -3,6 +3,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSession(); // Uygulamada Session kullanabilmek için session servisini ekliyoruz
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,6 +17,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseSession(); // Uygulamada Session kullanabilmek için session kullan talimatý
 
 app.UseRouting();
 

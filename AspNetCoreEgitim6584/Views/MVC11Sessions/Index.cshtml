@@ -1,0 +1,43 @@
+﻿﻿
+@{
+    ViewBag.Title = "MVC Sessions - Oturum Yönetimi";
+}
+
+<h2>MVC Sessions - Oturum Yönetimi</h2>
+
+<p>
+    Cookie ler kullnıcıların tarayıcılarında saklanan küçük çerezlerdi, Session yapısı ise daha güvenli veri saklamak için cookie nin yaptığını sunucu-server da yapan sistemdir. Server da kullanıcıyı tanımlamak için veya sayfalar arasında gizli veri taşımak için kullanılır.
+</p>
+
+<p>
+    .Net Core da session kullanımı .net frameworkden farklıdır.
+    <hr />
+    Session kullanabilmek için önce uygulamaya session servisini program.cs den eklememi gerekiyor
+    <hr />
+    .Net Core da session da 2 tip saklayabiliyoruz int ve string diğerleri artık saklanamıyor.
+    <hr />
+    Session da veri saklamak için setstring ve setint32 metotları, veriyi çağırmak için getstring ve getint32 metotları kullanılıyor.
+</p>
+
+<h3>Session Oluştur</h3>
+
+@if (Context.Session.GetString("deger") != null)
+{
+    <p>
+        Hoşgeldin <b>@Context.Session.GetString("deger")</b>
+        <a class="btn btn-danger" href="/MVC11Sessions/SessionSil">Oturumu Kapat</a>
+    </p>
+}
+else
+{
+    <form action="/MVC11Sessions/SessionOlustur" method="post">
+        <input type="text" name="kullaniciAdi" placeholder="Kullanıcı Adı" />
+        <input type="text" name="sifre" placeholder="Şifre" />
+        <br />
+        <input type="submit" value="Giriş" class="btn btn-primary" />
+    </form>
+}
+
+@Html.Raw(TempData["mesaj"])
+
+<a href="/MVC11Sessions/SessionOku">Session Oku</a>
