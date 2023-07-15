@@ -41,3 +41,22 @@ else
 @Html.Raw(TempData["mesaj"])
 
 <a href="/MVC11Sessions/SessionOku">Session Oku</a>
+
+<p>
+    Lokal hostta ssl güvenli değil hatası alırsak;
+    <br />
+    windows > cmd yazıp komut ekranını açıyoruz,
+    <br />
+    açılan komut ekranına önce ;
+    dotnet dev-certs https –clean
+    komutunu yazıp enter a,
+    <br />
+    Sonra
+    <br />
+    dotnet dev-certs https –trust
+    komutunu yazıp enter a basıyoruz.
+</p>
+
+<p>
+    Uygulamayı çalıştırdığımızda çıkan ekranda sol alttaki gelişmiş den lokalhost sitesine devam et veya ilerle linkine tıklayıp uygulamaya ulaşıyoruz.
+</p>

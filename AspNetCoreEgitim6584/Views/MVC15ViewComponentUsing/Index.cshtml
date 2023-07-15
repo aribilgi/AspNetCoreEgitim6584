@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "ViewComponent Kullanımı";
+}
+
+<h1>ViewComponent Kullanımı</h1>
+
+<p>
+    Asp.Net Core MVC de her hangi bir controller a bağlı olmadan çalışabilen yapılardır.
+</p>
+
+<h2>Kullanımı</h2>
+
+<p>
+    Projede ViewComponent kullanabilmek için projeye sağ tıklayıp add > new folder yoluyla ViewComponents adında bir klasör oluşturuyoruz.
+    <br />
+    Bu klasöre class ekleyip bu class ı ViewComponent sınıfından miras aldırıyoruz.
+    Burada class içerisinde veritabanından model verisini çekip ekrana yollayabiliriz.
+    <br />
+    ViewComponent yapısında 1 tane de ekrana ihtiyacımız var bunu da;
+    Views > MVC15ViewComponentUsing klasörü altında Components ismiyle açıp içerisine component adımızla bir klasör(Kategoriler) daha açıyoruz.
+    <br />
+    Son olarak Kategoriler klasörü içerisine default ismiyle bir view ekliyoruz
+</p>
+
+<h3>ViewComponent i Sayfada Çağırma</h3>
+
+<p>
+    Kullanacağımız ekranda await Component.InvokeAsync("Komponent Adı"); şeklinde çağırmamız yeterli
+</p>
+
+@await Component.InvokeAsync("Kategoriler");

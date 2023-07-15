@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "MVC16 HttpContext Kullanımı";
+}
+
+<h1>MVC16 HttpContext Kullanımı</h1>
+
+<h2>
+    View da Route Verisi Gösterme
+</h2>
+
+<p>
+    Controller Adı : 
+    <b>
+        @Context.GetRouteValue("Controller")
+    </b>
+</p>
+
+<p>
+    Action Adı : 
+    <b>
+        @Context.GetRouteValue("Action")
+    </b>
+</p>
+
+<p>
+    Id Değeri : 
+    <b>
+        @Context.GetRouteValue("Id")
+    </b>
+</p>
+
+<p>
+    Request Method : 
+    <b>
+        @Context.Request.Method
+    </b>
+</p>
+
+<p>
+    Request Scheme : 
+    <b>
+        @Context.Request.Scheme
+    </b>
+</p>
+
+<p>
+    <a href="?kelime=elektronik">elektronik</a>
+    <br />
+
+    Request Query Değeri :
+    
+    <b>
+        @Context.Request.Query["kelime"]
+    </b>
+</p>
+

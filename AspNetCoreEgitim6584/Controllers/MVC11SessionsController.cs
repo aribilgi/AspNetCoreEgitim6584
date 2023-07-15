@@ -15,6 +15,8 @@ namespace AspNetCoreEgitim6584.Controllers
             {
                 //Session["deger"] = "Admin"; // Bir session oluştur adı deger olsun ve üzerinde Admin verisini taşısın.
                 HttpContext.Session.SetString("deger", "Admin");
+                HttpContext.Session.SetString("userguid", Guid.NewGuid().ToString()); // kullanıcıya özel kod
+                HttpContext.Session.SetInt32("userId", 18); // session da int veri taşımak için
                 TempData["mesaj"] = "<div class='alert alert-success'>Giriş Başarılı!</div>";
             }
             else
@@ -34,6 +36,17 @@ namespace AspNetCoreEgitim6584.Controllers
                 TempData["mesaj"] = "<div class='alert alert-danger'>Giriş Yapılmamış!</div>";
             }
             return View();
+        }
+        public ActionResult SessionSil()
+        {
+            if (HttpContext.Session.GetString("deger") != null)
+            {
+                // Session["deger"] = null;
+                // HttpContext.Session.Remove("deger"); // deger isimli session u sil
+                HttpContext.Session.Clear(); // kullanıcıya ait tüm sessionları sil
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
