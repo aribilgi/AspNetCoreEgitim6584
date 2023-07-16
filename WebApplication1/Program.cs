@@ -1,3 +1,5 @@
+using WebApplication1.Models;
+
 namespace WebApplication1
 {
     public class Program
@@ -8,6 +10,8 @@ namespace WebApplication1
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<DatabaseContext>(); // DatabaseContext i dependency injection ile kullanabilmek için burada servis olarak ekliyoruz yoksa hata veriyor.
 
             var app = builder.Build();
 
@@ -25,6 +29,11 @@ namespace WebApplication1
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.MapControllerRoute(
+                name: "admin",
+                pattern: "{area:exists}/{controller=Main}/{action=Index}/{id?}"
+            );
 
             app.MapControllerRoute(
                 name: "default",

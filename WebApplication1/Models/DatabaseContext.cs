@@ -10,7 +10,7 @@ namespace WebApplication1.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // bu metot uygulama veritabanı ayarlarının yapılandırılması için
-            optionsBuilder.UseSqlServer(@"Server=.; database=WebApplication1; trusted_connection=true");
+            optionsBuilder.UseSqlServer(@"Server=.; database=WebApplication1; trusted_connection=true; TrustServerCertificate=True");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
