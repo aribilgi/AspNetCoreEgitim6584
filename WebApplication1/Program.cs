@@ -1,4 +1,5 @@
 using WebApplication1.Models;
+using Microsoft.AspNetCore.Authentication.Cookies; // uygulamada oturum açmayý etkinleþtirmek için.
 
 namespace WebApplication1
 {
@@ -12,6 +13,14 @@ namespace WebApplication1
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<DatabaseContext>(); // DatabaseContext i dependency injection ile kullanabilmek için burada servis olarak ekliyoruz yoksa hata veriyor.
+
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+            {
+                x.LoginPath = "/Admin/Login"; // giriþ yapmayan kullanýcýlarý giriþ için bu adrese yönlendir
+                x.Cookie.Name = "AdminLogin"; // giriþ yapan kullanýcýlar için oluþacak cookie ismi bu olsun
+            }); // uygulamada oturum açmayý etkinleþtirmek için.
+
+            builder.Services.AddSession();
 
             var app = builder.Build();
 
@@ -28,7 +37,8 @@ namespace WebApplication1
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication(); // uygulamada oturum açmayý etkinleþtirmek için.
+            app.UseAuthorization(); // Dikkat!!! .net core da kesinlikle önce app.UseAuthentication() sonra app.UseAuthorization() gelmeli yoksa oturum açýlamaz! Önce giriþ sonra yetkilendirme devreye girmeli!
 
             app.MapControllerRoute(
                 name: "admin",
