@@ -7,15 +7,17 @@ namespace WebApplication1.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly DatabaseContext _context;
+        public HomeController(ILogger<HomeController> logger, DatabaseContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model = _context.Products.Take(6).ToList(); // take metodu içerisine yazılan kadar kaydı çeker, select top 6 .. gibi
+            return View(model);
         }
 
         public IActionResult Privacy()
