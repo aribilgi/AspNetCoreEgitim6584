@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreEgitim6584", "AspNetCoreEgitim6584\AspNetCoreEgitim6584.csproj", "{8942A6CE-B154-4F6C-A54E-0C5B65D2A585}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{15BC32DF-8E96-4BEA-BE47-3FBBA577EFA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{15BC32DF-8E96-4BEA-BE47-3FBBA577EFA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreWebAPI", "AspNetCoreWebAPI\AspNetCoreWebAPI.csproj", "{A4711D24-89F1-4CDE-8FAE-CAB5A47CAC4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{15BC32DF-8E96-4BEA-BE47-3FBBA577EFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15BC32DF-8E96-4BEA-BE47-3FBBA577EFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15BC32DF-8E96-4BEA-BE47-3FBBA577EFA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4711D24-89F1-4CDE-8FAE-CAB5A47CAC4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4711D24-89F1-4CDE-8FAE-CAB5A47CAC4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4711D24-89F1-4CDE-8FAE-CAB5A47CAC4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4711D24-89F1-4CDE-8FAE-CAB5A47CAC4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
